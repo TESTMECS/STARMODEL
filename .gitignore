@@ -1,0 +1,6 @@
+Pipfile
+Pipfile.lock
+logs
+starmodel
+fine_tuned_model
+results
