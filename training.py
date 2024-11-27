@@ -31,7 +31,7 @@ train_data = Dataset.from_dict({"sentence": train_texts, "label": train_labels})
 val_data = Dataset.from_dict({"sentence": val_texts, "label": val_labels})
 
 # Initialize the tokenizer
-model_name = "bert-base-uncased"  # You can use any other pretrained model
+model_name = "bert-base-cased"  # You can use any other pretrained model
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 # Tokenize datasets
@@ -53,10 +53,10 @@ training_args = TrainingArguments(
     output_dir="./results",
     evaluation_strategy="epoch",
     save_strategy="epoch",
-    learning_rate=3e-5,
+    learning_rate=5e-5,
     per_device_train_batch_size=16,
     per_device_eval_batch_size=16,
-    num_train_epochs=4,
+    num_train_epochs=3,
     weight_decay=0.01,
     logging_dir="./logs",
     logging_steps=10,
