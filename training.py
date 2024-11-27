@@ -1,6 +1,6 @@
 import pandas as pd
 from datasets import Dataset
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
+from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
 from transformers import DataCollatorWithPadding, EarlyStoppingCallback
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -32,7 +32,7 @@ val_data = Dataset.from_dict({"sentence": val_texts, "label": val_labels})
 
 # Initialize the tokenizer
 model_name = "bert-base-cased"  # You can use any other pretrained model
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = BertTokenizer.from_pretrained(model_name)
 
 # Tokenize datasets
 def preprocess_function(examples):
@@ -43,7 +43,7 @@ val_data = val_data.map(preprocess_function, batched=True)
 
 # Load the model
 num_labels = len(label_encoder.classes_)  # Number of unique labels
-model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
+model = BertForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
 
 # Define data collator
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)

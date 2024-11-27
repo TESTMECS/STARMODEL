@@ -1,7 +1,5 @@
-# FILE: usage.py
-
 import pandas as pd
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import BertTokenizer, BertForSequenceClassification
 from sklearn.preprocessing import LabelEncoder
 import torch
 import json
@@ -16,8 +14,8 @@ df['label'] = label_encoder.fit_transform(df['label'])
 
 # Load the fine-tuned model and tokenizer
 model_path = "./fine_tuned_model"
-model = AutoModelForSequenceClassification.from_pretrained(model_path)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = BertForSequenceClassification.from_pretrained(model_path)
+tokenizer = BertTokenizer.from_pretrained(model_path)
 
 # Load the label mapping
 with open(f"{model_path}/label_mapping.json", "r") as f:
