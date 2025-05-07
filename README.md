@@ -1,5 +1,10 @@
 # STAR Sentence Classifier 📄
-
+```bash
+python star_trainer.py \
+  --csv_file data/cleaned_df.csv \
+  --model_name google-bert/bert-base-uncased \
+  --epochs 8 --lr 3e-5 --batch_size 32
+```
 A lightning‑quick way to **train, evaluate, and analyse** a classifier that tags interview sentences with their STAR stage—**Situation, Task, Action, Result**—using any Hugging Face transformer.
 
 ---

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 star_trainer.py — Class‑based STAR sentence classifier
 =====================================================
@@ -146,6 +145,7 @@ class StarTrainer:
             per_device_train_batch_size=self.cfg.batch_size,
             per_device_eval_batch_size=self.cfg.batch_size,
             learning_rate=self.cfg.lr,
+            optim="adamw_torch",
             eval_strategy="epoch",
             save_strategy="epoch",
             logging_strategy="epoch",
