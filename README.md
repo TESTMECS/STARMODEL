@@ -9,15 +9,6 @@ A lightning‑quick way to **train, evaluate, and analyse** a classifier that ta
 
 ---
 
-## ✨ Why use this repo?
-
-* **One‑command training**: `python star_trainer.py --csv_file data/annotated.csv …`.
-* **Model‑agnostic**: plug in *any* HF checkpoint (`bert-base-uncased`, `roberta-base`, `microsoft/deberta-v3-small`, …).
-* **Clear outputs for papers**: PNG learning‑curves, a confusion‑matrix heat‑map, and a Markdown metrics table.
-* **Clean class‑based design**: easy to extend (e.g. add CRF, k‑fold CV, early stopping).
-
----
-
 ## 🚀 Quick Start
 
 ```bash
@@ -92,16 +83,4 @@ best_model/              # saved HF model & tokenizer
 └── star_output/           # Auto‑generated artefacts
 ```
 
----
-
-## 🙋‍♀️ FAQ
-
-**Q: My CSV has extra columns—do I need to delete them?**
-A: Nope. Only `sentence` and `label` are used; others are ignored.
-
-**Q: CUDA OOM!**
-A: Lower `--batch_size`, shorten `--max_length`, or switch to a distilled model.
-
----
-
-Made with ❤️ and transformers.
+Made with ❤️
